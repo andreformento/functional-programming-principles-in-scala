@@ -38,13 +38,16 @@ object Main {
       else if (count < 0) return false
 
       val current = list.head
-      var sum: Int = 0
-
-      if (current.equals('(')) {
-        sum = 1
-      } else if (current.equals(')')) {
-        sum = -1
+      val sum = {
+        if (current.equals('(')) {
+          1
+        } else if (current.equals(')')) {
+          -1
+        } else {
+          0
+        }
       }
+
       validate(count + sum, list.tail)
     }
     validate(0, chars)
