@@ -58,10 +58,16 @@ object Main {
     */
   def countChange(money: Int, coins: List[Int]): Int = {
     def sumList(accumulator: Int, list: List[Int]): Int = {
-      if (list.isEmpty) return accumulator
-      sumList(accumulator + list.head, list.tail)
+      if (list.isEmpty) accumulator
+      else sumList(accumulator + list.head, list.tail)
     }
-
+    def validateList(list: List[Int]) = {
+      val sum: Int = sumList(0, list)
+      if (sum == money) 1
+      else if (sum > money) -1
+      else 0
+    }
+    
 
     ???
   }
