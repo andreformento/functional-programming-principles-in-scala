@@ -57,18 +57,8 @@ object Main {
     * Exercise 3
     */
   def countChange(money: Int, coins: List[Int]): Int = {
-    def sumList(accumulator: Int, list: List[Int]): Int = {
-      if (list.isEmpty) accumulator
-      else sumList(accumulator + list.head, list.tail)
-    }
-    def validateList(list: List[Int]) = {
-      val sum: Int = sumList(0, list)
-      if (sum == money) 1
-      else if (sum > money) -1
-      else 0
-    }
-    
-
-    ???
+    if (money == 0) 1
+    else if (coins.isEmpty || money < 0) 0
+    else countChange(money, coins.tail) + countChange(money - coins.head, coins)
   }
 }
