@@ -14,10 +14,6 @@ object Main {
     * Exercise 1
     */
   def pascal(c: Int, r: Int): Int = {
-    if (r <= 0) {
-      return 1
-    }
-
     def get(col: Int, row: Int): Int = {
       if (col < 0 || col > row) {
         0
@@ -26,7 +22,11 @@ object Main {
       }
     }
 
-    get(c - 1, r - 1) + get(c, r - 1)
+    if (r <= 0) {
+      1
+    } else {
+      get(c - 1, r - 1) + get(c, r - 1)
+    }
   }
 
   /**
@@ -34,21 +34,22 @@ object Main {
     */
   def balance(chars: List[Char]): Boolean = {
     def validate(count: Int, list: List[Char]): Boolean = {
-      if (list.isEmpty) return count == 0
-      else if (count < 0) return false
-
-      val current = list.head
-      val sum = {
-        if (current.equals('(')) {
-          1
-        } else if (current.equals(')')) {
-          -1
-        } else {
-          0
+      if (list.isEmpty) count == 0
+      else if (count < 0) false
+      else {
+        val current = list.head
+        val sum = {
+          if (current.equals('(')) {
+            1
+          } else if (current.equals(')')) {
+            -1
+          } else {
+            0
+          }
         }
-      }
 
-      validate(count + sum, list.tail)
+        validate(count + sum, list.tail)
+      }
     }
     validate(0, chars)
   }
