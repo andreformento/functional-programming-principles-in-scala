@@ -67,7 +67,7 @@ object Main {
       else if (sum > money) -1
       else 0
     }
-    
+
 
     ???
   }
