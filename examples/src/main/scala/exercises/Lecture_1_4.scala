@@ -23,3 +23,27 @@ object Lecture_1_4_conditionals_and_value_definitions {
   }
 
 }
+
+object lecture_1_4_conditionals_and_value_definitions {
+
+  def main(args: Array[String]): Unit = {
+    val a = Seq(1, 2, 3, 4).
+      map(x => x + 10).
+      map(_ * 2).
+      reduce((a, b) => a + b)
+    println(a)
+
+
+    val x = if (false) {
+      println("is true")
+      1
+    } else {
+      println("is false")
+      0
+    }
+    println(x)
+  }
+
+}
+
+// https://www.coursera.org/learn/progfun1/lecture/FQDE1/lecture-1-5-example-square-roots-with-newtons-method
