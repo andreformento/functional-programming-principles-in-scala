@@ -45,5 +45,3 @@ object lecture_1_4_conditionals_and_value_definitions {
   }
 
 }
-
-//https://www.coursera.org/learn/progfun1/lecture/rBgEI/lecture-1-6-blocks-and-lexical-scope
